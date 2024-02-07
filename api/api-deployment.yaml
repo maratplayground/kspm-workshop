@@ -14,20 +14,11 @@ spec:
       labels:
         app: api
     spec:
-      affinity:
-          nodeAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              nodeSelectorTerms:
-              - matchExpressions:
-                - key: kubernetes.io/arch
-                  operator: In
-                  values:
-                  - amd64
       containers:
       - name: api
-        image: quay.io/maratsal/api:1.0.0 
+        image: bitnami/nginx:latest 
         ports:
-        - containerPort: 8000
+        - containerPort: 8080
         securityContext:
           allowPrivilegeEscalation: false
           runAsUser: 0
@@ -42,7 +33,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 8000
+    targetPort: 8080
   selector:
     app: api
   type: ClusterIP

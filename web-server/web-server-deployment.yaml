@@ -16,10 +16,11 @@ spec:
         app: web-server
     spec:
       containers:
-      - image: nginx:alpine
+      - image: bitnami/nginx:latest
         name: web-server
         securityContext:
           allowPrivilegeEscalation: false
+          runAsUser: 1001
           capabilities:
             add:
             - NET_RAW
