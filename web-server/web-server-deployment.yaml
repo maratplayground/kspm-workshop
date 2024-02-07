@@ -18,3 +18,8 @@ spec:
       containers:
       - image: nginx:alpine
         name: web-server
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            add:
+            - NET_RAW
