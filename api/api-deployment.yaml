@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: bitnami/nginx:latest 
+        image: bitnami/nginx:latest
         ports:
         - containerPort: 8080
         securityContext:
